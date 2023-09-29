@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
   darkMode: boolean = false;
+
+  constructor(@Inject(DOCUMENT) private document: any) {}
+  
+  darkModeSwitch(): void {
+    this.darkMode = !this.darkMode
+    this.document.body.classList.toggle("dark-mode");
+  }
+
 }
