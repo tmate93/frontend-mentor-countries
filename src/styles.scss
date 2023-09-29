@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --element-color: hsl(0, 0%, 100%);
+    --background-color: hsl(0, 0%, 100%);
+    --text-color: hsl(200, 15%, 8%);
+    --input-color: hsl(0, 0%, 52%);
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito Sans', sans-serif;
+
+    background: var(--background-color);
+    color: var(--text-color);
+
+    input {
+        color: var(--input-color);
+    }
+
+    &.dark-mode {
+        --element-color: hsl(209, 23%, 22%);
+        --background-color: hsl(207, 26%, 17%);
+        --text-color: hsl(0, 0%, 100%);
+        --input-color: hsl(0, 0%, 52%);
+    }
+}
