@@ -5,13 +5,10 @@
     --background-color: hsl(0, 0%, 100%);
     --text-color: hsl(200, 15%, 8%);
     --input-color: hsl(0, 0%, 52%);
+}
 
-    --dark-element-color: hsl(209, 23%, 22%);
-    --dark-background-color: hsl(207, 26%, 17%);
-    --dark-text-color: hsl(0, 0%, 100%);
-    --dark-input-color: hsl(0, 0%, 52%);
-
-
+body {
+    margin: 0;
     font-family: 'Nunito Sans', sans-serif;
 
     background: var(--background-color);
@@ -20,17 +17,11 @@
     input {
         color: var(--input-color);
     }
-}
 
-body {
-    margin: 0;
-}
-
-.dark-mode {
-    background: var(--dark-background-color);
-    color: var(--dark-text-color);
-
-    input {
-        color: var(--dark-input-color);
+    &.dark-mode {
+        --element-color: hsl(209, 23%, 22%);
+        --background-color: hsl(207, 26%, 17%);
+        --text-color: hsl(0, 0%, 100%);
+        --input-color: hsl(0, 0%, 52%);
     }
 }
