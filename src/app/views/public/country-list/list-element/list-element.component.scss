@@ -1,0 +1,28 @@
+:host {
+    a {
+        display: inline-block;
+        width: 20.5rem;
+        height: 27rem;
+        background: var(--element-color);
+        border-radius: 0.5rem;
+        overflow: hidden;
+
+        img {
+            height: 48%;
+            width: 100%;
+            object-fit: fill;
+        }
+
+        .text {
+            padding: 1.5rem;
+
+            h2 {
+                margin-bottom: 1.5rem;
+            }
+
+            p {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}

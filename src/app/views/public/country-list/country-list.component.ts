@@ -8,7 +8,7 @@ import { Counrty, DataService } from 'src/app/core/services/data.service';
 })
 export class CountryListComponent {
   @Input() countries!: Counrty<string>[];
-  test!: Counrty<string>;
+  test!: Counrty<string> | null;
 
   constructor(private dataService: DataService) {}
 

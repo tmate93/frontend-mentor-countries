@@ -1,1 +1,2 @@
-<app-list-element [country]="test"></app-list-element>
+<p *ngIf="countries.length < 1">Loading...</p>
+<app-list-element *ngFor="let country of countries" [country]="country"></app-list-element>
