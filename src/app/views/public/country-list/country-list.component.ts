@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Counrty, DataService } from 'src/app/core/services/data.service';
+import { Counrty } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-country-list',
@@ -8,16 +8,4 @@ import { Counrty, DataService } from 'src/app/core/services/data.service';
 })
 export class CountryListComponent {
   @Input() countries!: Counrty<string>[];
-  test!: Counrty<string> | null;
-
-  constructor(private dataService: DataService) {}
-
-  ngOnInit() {
-    this.dataService.getCountries().then((res) => {
-      this.countries = res;
-    });
-    this.dataService.getCountryByCode(348).then((res) => {
-      this.test = res;
-    });
-  }
 }
