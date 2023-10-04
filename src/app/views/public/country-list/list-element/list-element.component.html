@@ -1,4 +1,4 @@
-<a *ngIf="country" href="#" class="country-data">
+<a *ngIf="country" [routerLink]="['/public/details', { id: country.cca3 }]" class="country-data">
     <img src="{{country.flags['png']}}" alt="{{country.name.common}}">
     <div class="text">
         <h2>{{country.name.common}}</h2>

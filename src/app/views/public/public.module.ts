@@ -8,23 +8,25 @@ import { CountryListComponent } from './country-list/country-list.component';
 import { ListElementComponent } from './country-list/list-element/list-element.component';
 import { FilterComponent } from './filter/filter.component';
 import { HomeComponent } from './pages/home/home.component';
-
+import { DetailsComponent } from './pages/details/details.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-  
     CountryListComponent,
-       ListElementComponent,
-       FilterComponent,
-       HomeComponent
+    ListElementComponent,
+    FilterComponent,
+    HomeComponent,
+    DetailsComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     PublicRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class PublicModule { }
