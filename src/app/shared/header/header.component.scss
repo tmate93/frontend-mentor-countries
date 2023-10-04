@@ -3,11 +3,25 @@
     justify-content: space-between;
     align-items: center;
     height: 5rem;
-
     padding-left: 5rem;
     padding-right: 5rem;
 
-    border-bottom: 1px solid rgba(black, 0.1);
+    &::after {
+        position: absolute;
+        content: '';
+        height: 5rem;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        z-index: -1;
+        background: var(--element-color);
+        border-bottom: 1px solid rgba(black, 0.1);
+    }
+    
+    h1 {
+
+    }
 
     button {
         background: none;
@@ -17,8 +31,8 @@
         cursor: pointer;
     }
 
-    @media (max-width: 375px) {
-        padding-left: 1rem;
-        padding-right: 1rem;
+    @media (max-width: 600px) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 }

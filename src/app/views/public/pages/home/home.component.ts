@@ -15,40 +15,17 @@ export class HomeComponent {
     this.dataService.getRegions().then((res) => { this.regionList = res});
   }
 
-  onSearch(filter: {region: string | null, keyWords: string | null}): void {
-    this.countries = [];
-    let results: Counrty<string>[] = [];
+  public async onSearch(filter: {region: string | null, keyWords: string | null}): Promise<void> {
+    const results = filter.region
+      ? await this.dataService.getCountriesByRegion(filter.region)
+      : await this.dataService.getCountries();
 
-    if(filter.region === "" || filter.region === null) {
-      this.dataService.getCountries().then((res) => { 
-        results = res 
-
-        if(filter.keyWords === "" || filter.keyWords === null) {
-          this.countries = results;
-        } else {
-          results.filter(country => {
-            return country.name.common.toLowerCase().includes(filter.keyWords!.toLowerCase())
-          }).forEach(country => {
-              if (!this.countries.find(fCountry => fCountry.name === country.name))
-              this.countries.push(country);
-          })
-        }
-      });
+    if (filter.keyWords === "" || filter.keyWords === null) {
+      this.countries = results;
     } else {
-      this.dataService.getCountriesByRegion(filter.region).then((res) => { 
-        results = res 
-
-        if(filter.keyWords === "" || filter.keyWords === null) {
-          this.countries = results;
-        } else {
-          results.filter(country => {
-            return country.name.common.toLowerCase().includes(filter.keyWords!.toLowerCase())
-          }).forEach(country => {
-              if (!this.countries.find(fCountry => fCountry.name === country.name))
-              this.countries.push(country);
-          })
-        }
-      });
+      this.countries = results
+        .filter(country => country.name.common.toLowerCase().includes(filter.keyWords!.toLowerCase()))
+        .filter(country => !this.countries.find(fCountry => fCountry.name === country.name))
     }
   }
 

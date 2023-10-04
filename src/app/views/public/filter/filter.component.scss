@@ -6,15 +6,14 @@
         justify-content: space-between;
         align-items: center;
         height: 8rem;
-        padding-left: 2.5rem;
-        padding-right: 2.5rem;
 
         input {
             font-family: 'Nunito Sans', sans-serif, 'FontAwesome';
             background: var(--element-color);
             border: none;
-            width: 90%;
-            max-width: 20rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            max-width: 30rem;
             height: 3rem;
             padding-left: 2rem;
             padding-right: 2rem;
@@ -24,11 +23,19 @@
             background: var(--element-color);
             color: var(--text-color);
             border: none;
+            border-radius: 0.5rem;
             width: 60%;
-            max-width: 11rem;
+            max-width: 12.5rem;
             height: 3rem;
             padding-left: 1.5rem;
             padding-right: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            flex-direction: column;
+            align-items: start;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
         }
     }
 }
