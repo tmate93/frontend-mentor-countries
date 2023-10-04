@@ -15,8 +15,12 @@ export class DataService {
     return firstValueFrom(this.http.get<Counrty<string>[]>(`${this.API_URL}/all`));
   }
 
-  getCountryByName(name: string): Promise<Counrty<string>[]> {
+  getCountriesByName(name: string): Promise<Counrty<string>[]> {
     return firstValueFrom(this.http.get<Counrty<string>[]>(`${this.API_URL}/name/${name}`));
+  }
+
+  getCountriesByRegion(region: string): Promise<Counrty<string>[]> {
+    return firstValueFrom(this.http.get<Counrty<string>[]>(`${this.API_URL}/region/${region}`));
   }
 
   async getCountryByCode(code: number): Promise<Counrty<string> | null> {
@@ -30,6 +34,17 @@ export class DataService {
         })
       )
     );
+  }
+
+  async getRegions(): Promise<string[]> {
+    let regions: string[] = [];
+    await firstValueFrom(this.http.get<Counrty<string>[]>(`${this.API_URL}/all`)).then((res) => { 
+      res.forEach(country => {
+            if (!regions.find(region => region === country.region))
+            regions.push(country.region);
+        })
+      });
+    return regions;
   }
 }
 

@@ -1,0 +1,16 @@
+<form [formGroup]="filter">
+    <input 
+        class="fa"
+        type="search" 
+        formControlName="keyWords" 
+        placeholder="&#xF002;&Tab;Search for a country..."
+    >
+    <select 
+        formControlName="region" 
+    >
+        <option selected value="">Filter by Region</option>
+        <option *ngFor="let region of regionList" [ngValue]="region">
+        {{ region }}
+        </option>
+    </select>  
+</form>
