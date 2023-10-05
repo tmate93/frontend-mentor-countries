@@ -1,0 +1,139 @@
+:host {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    display: block;
+
+    .button {
+        display: block;
+        background: var(--element-color);
+        border-radius: 0.3rem;
+        box-shadow: 0 0 1px 2px rgba(black, 0.3);
+    }
+
+    .back-button {
+        width: 8.5rem;
+        height: 2.5rem;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+
+        a {
+            display: block;
+            padding: 0.75rem;
+            text-align: center;
+            line-height: 1rem;
+
+            b {
+                font-size: 1.1rem;
+                font-weight: bold;
+                padding-right: 0.5rem;
+            }
+        }
+    }
+    
+    .country {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+            height: 25rem;
+            width: 35rem;
+        }
+
+        .details {
+            max-width: 37.5rem;
+            
+            h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .info {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                gap: 8rem;
+                margin-bottom: 4rem;
+
+                p {
+                    margin-bottom: 0.5rem;
+                }
+            }
+
+            .border-list {
+                display: flex;
+                justify-content: start;
+                align-items: start;
+                gap: 1rem;
+
+                p {
+                    min-width: fit-content;
+                    line-height: 1.75rem;
+                }
+
+                .button-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: start;
+                    align-items: center;
+                    gap: 1rem;
+
+                    .border-button {
+                        min-width: 6rem;
+                        width: fit-content;
+                        height: 1.75rem;
+                        padding-left: 0.2rem;
+                        padding-right: 0.2rem;
+    
+                        a {
+                            display: block;
+                            padding: 0.375rem;
+                            text-align: center;
+                            line-height: 1;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 600px) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+
+        .back-button {
+            margin-top: 3rem;
+        }
+
+        .country {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            flex-direction: column;
+    
+            img {
+                height: 14.5rem;
+                width: 20rem;
+                margin-bottom: 3rem;
+            }
+
+            .details {
+                .info {
+                    flex-direction: column;
+                    gap: 3rem;
+                    margin-bottom: 3rem;
+                }
+
+                .border-list {
+                    flex-wrap: wrap;
+                    margin-bottom: 3rem;
+
+                    p {
+                        flex-basis: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
