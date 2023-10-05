@@ -23,7 +23,7 @@ export class DataService {
     return firstValueFrom(this.http.get<Counrty<string>[]>(`${this.API_URL}/region/${region}`));
   }
 
-  async getCountryByCode(code: number): Promise<Counrty<string> | null> {
+  async getCountryByCode(code: number | string): Promise<Counrty<string> | null> {
     return firstValueFrom(
       this.http.get<Counrty<string>[]>(`${this.API_URL}/alpha/${code}`).pipe(
         map(data => {
@@ -59,6 +59,7 @@ export interface Counrty<LanguageKeys extends string> {
     }>;
   };
   tld: string;
+  cca3: string;
   currencies: Record<string, {
     name: string;
     symbol: string;

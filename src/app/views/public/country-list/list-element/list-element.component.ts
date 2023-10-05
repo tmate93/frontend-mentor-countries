@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Counrty } from 'src/app/core/services/data.service';
 
 @Component({
@@ -8,4 +9,6 @@ import { Counrty } from 'src/app/core/services/data.service';
 })
 export class ListElementComponent {
   @Input() country!: Counrty<string>;
+
+  constructor(protected router: Router) {}
 }

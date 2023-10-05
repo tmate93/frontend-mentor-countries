@@ -1,0 +1,32 @@
+<div class="button back-button">
+    <a [routerLink]="['/public/home']"><b>&#8592;</b> back</a>
+</div>
+<div *ngIf="country" class="country">
+    <img src="{{country.flags['png']}}" alt="{{country.name.common}}">
+    <div class="details">
+        <h2>{{country.name.common}}</h2>
+        <div class="info">
+            <div class="demographic">
+                <p><b>Native Name:</b> {{country.name.nativeName | nativeName}}</p>
+                <p><b>Population:</b> {{country.population}}</p>
+                <p><b>Region:</b> {{country.region}}</p>
+                <p><b>Sub Region:</b> {{country.subRegion}}</p>
+                <p><b>Capital:</b> {{country.capital[0]}}</p>
+            </div>
+            <div class="other">
+                <p><b>Top Level Domain:</b> {{country.tld[0]}}</p>
+                <p><b>Currencies:</b> {{country.currencies | currencies}}</p>
+                <p><b>Languages:</b> {{country.languages | languages}}</p>
+            </div>
+        </div>
+        <div *ngIf="country.borders" class="border-list">
+            <p><b>Border Countries:</b></p>
+            <div class="button-list">
+                <div class="button border-button" *ngFor="let border of country.borders">
+                    <a [routerLink]="['/public/details', { id: border }]">{{border | name | async}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
