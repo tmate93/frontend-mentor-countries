@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService ,Counrty } from 'src/app/core/services/data.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   countries!: Counrty<string>[];
   regionList!: string[];
 
@@ -20,7 +19,7 @@ export class HomeComponent {
       ? await this.dataService.getCountriesByRegion(filter.region)
       : await this.dataService.getCountries();
 
-    if (filter.keyWords === "" || filter.keyWords === null) {
+    if (!filter.keyWords) {
       this.countries = results;
     } else {
       this.countries = results
